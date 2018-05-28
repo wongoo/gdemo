@@ -12,6 +12,78 @@ import (
 )
 
 func main() {
+	stringBasic()
+	//subString()
+	//stringContract()
+}
+
+func stringBasic() {
+	fmt.Println("-----------------------")
+	s := "hello world to every"
+	arr := strings.Split(s, " ")
+	for n, item := range arr {
+		fmt.Println(n, item)
+	}
+	fmt.Println(strings.Fields(s))
+	fmt.Println(strings.Fields("hello  world		hi	 every"))
+
+	fmt.Println(strings.FieldsFunc("hello everyone how are you", func(r rune) bool {
+		return r == 'e'
+	}))
+
+	fmt.Println(strings.Contains(s, "world"))
+	fmt.Println(strings.Contains(s, "worle"))
+
+	fmt.Println(strings.ContainsAny(s, "abc"))
+	fmt.Println(strings.ContainsAny(s, "def"))
+
+	fmt.Println(strings.ContainsRune(s, '好'))
+	fmt.Println(strings.ContainsRune("你好吗", '好'))
+
+	fmt.Println(strings.Count(s, "o"))
+	fmt.Println(strings.Compare("abc", "abc"))
+	fmt.Println(strings.Compare("abc", "abcd"))
+
+	fmt.Println(strings.EqualFold("abc", "abc"))
+	fmt.Println(strings.EqualFold("你好", "你好"))
+
+	fmt.Println(strings.HasPrefix("abcdefg", "abc"))
+	fmt.Println(strings.HasSuffix("abcdefg", "efg"))
+
+	fmt.Println(strings.Index(s, "lo"))
+	fmt.Println(strings.IndexRune(s, 'o'))
+	fmt.Println(strings.IndexByte(s, 'o'))
+	fmt.Println(strings.IndexFunc(s, func(r rune) bool {
+		return r == 'o'
+	}))
+
+	fmt.Println(strings.LastIndex(s, "o"))
+	fmt.Println(strings.LastIndexAny(s, "o"))
+	fmt.Println(strings.LastIndexByte(s, 'o'))
+	fmt.Println(strings.LastIndexFunc(s, func(r rune) bool {
+		return r == 'o'
+	}))
+
+	fmt.Println(strings.Map(func(r rune) rune {
+		if r == 'o' {
+			return -1
+		}
+		return r
+	}, s))
+
+	fmt.Println(strings.Repeat("hello", 3))
+	fmt.Println(strings.Replace(s, "o", "0", -1))
+
+	fmt.Println(strings.Title(s))
+	fmt.Println(strings.ToLower(s))
+	// fmt.Println(strings.ToLowerSpecial(f,s))
+
+	fmt.Println(strings.ToTitle(s))
+	fmt.Println(strings.ToUpper(s))
+}
+
+func subString() {
+	fmt.Println("-----------------------")
 	// alpha char string
 	s := "hello world"
 	fmt.Printf("s=%v\n", s)
@@ -43,6 +115,10 @@ func main() {
 	cnRuneSub := string(cnRune[2:5])
 	fmt.Printf("cnRuneSub=%v\n", cnRuneSub)
 
+}
+
+func stringContract() {
+	fmt.Println("-----------------------")
 	//string contract
 	s1 := "part1"
 	s2 := "part2"
@@ -51,10 +127,6 @@ func main() {
 	fmt.Printf("s2=%v\n", s2)
 	fmt.Printf("s3=%v\n", s3)
 
-	stringContractPerformance()
-}
-
-func stringContractPerformance() {
 	loopTime := 10000
 	//第一种连接方法（最快）
 	var buffer bytes.Buffer

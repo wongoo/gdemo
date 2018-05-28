@@ -100,4 +100,7 @@ func durationDemo() {
 	diff := time.Now().Sub(old)
 	p(int(diff.Seconds()))
 
+	du := time.Since(old)
+	p(du)
+
 }
