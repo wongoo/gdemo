@@ -6,7 +6,7 @@ package inherit
 
 import "testing"
 
-func TestF(t *testing.T) {
+func TestFu(t *testing.T) {
 	a := FA{f1: "x"}
 	b := FB{f2: "y"}
 

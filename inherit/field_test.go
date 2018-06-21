@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestRun(t *testing.T) {
+func TestF(t *testing.T) {
 	a := A{
 		F1: "a",
 	}

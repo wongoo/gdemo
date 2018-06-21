@@ -6,6 +6,7 @@ package inherit
 
 import "fmt"
 
+// --------------------
 type FA struct {
 	f1 string
 }
@@ -14,6 +15,7 @@ func (f FA) do1() {
 	fmt.Println("f1", f.f1)
 }
 
+// --------------------
 type FB struct {
 	FA
 	f2 string
