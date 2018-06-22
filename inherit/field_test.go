@@ -9,6 +9,24 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+// --------------------
+type A struct {
+	F1 string
+}
+
+// --------------------
+type B struct {
+	A // 继承了A的字段
+	F2 string
+}
+
+// --------------------
+type C struct {
+	B // 继承了B的字段
+	F3 string
+}
+
+// --------------------
 func TestF(t *testing.T) {
 	a := A{
 		F1: "a",
@@ -21,11 +39,11 @@ func TestF(t *testing.T) {
 		B:  b,
 		F3: "c",
 	}
-	assert.Equal(t, "a", c.F1)
-	assert.Equal(t, "b", c.F2)
+	assert.Equal(t, "a", c.F1) //访问父结构体A的字段
+	assert.Equal(t, "b", c.F2) //访问父结构体B的字段
 
-	c.F1 = "d"
-	c.F2 = "e"
+	c.F1 = "d" //修改父结构体A的字段值
+	c.F2 = "e" //修改父结构体B的字段值
 	assert.Equal(t, "d", c.F1)
 	assert.Equal(t, "e", c.F2)
 }
