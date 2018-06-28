@@ -2,14 +2,15 @@
 // created: 2018-05-25
 // time demo
 
-package main
+package basic
 
 import (
 	"fmt"
 	"time"
+	"testing"
 )
 
-func main() {
+func TestTime(t *testing.T) {
 	timeDemo()
 
 	durationDemo()

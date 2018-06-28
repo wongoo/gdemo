@@ -2,16 +2,17 @@
 // created: 2018-05-24
 // string demo
 
-package main
+package basic
 
 import (
 	"fmt"
 	"time"
 	"bytes"
 	"strings"
+	"testing"
 )
 
-func main() {
+func TestStr(t *testing.T) {
 	stringBasic()
 	//subString()
 	//stringContract()

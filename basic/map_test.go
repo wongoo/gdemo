@@ -22,11 +22,14 @@
 //	boolean	false
 //	string	""
 
-package main
+package basic
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
-func main() {
+func TestMap(t *testing.T) {
 	numberMap := make(map[string]int)
 
 	// check

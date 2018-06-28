@@ -2,15 +2,16 @@
 // created: 2018-05-25
 // buffer demo
 
-package main
+package basic
 
 import (
 	"bytes"
 	"fmt"
 	"os"
+	"testing"
 )
 
-func main() {
+func TestBuffer(t *testing.T) {
 	NewBufferString()
 	Grow()
 

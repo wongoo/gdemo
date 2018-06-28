@@ -2,12 +2,14 @@
 // created: 2018-05-24
 // array demo
 
-package main
+package basic
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
-func main() {
-
+func TestArray(t *testing.T) {
 	// define array type and size
 	var arr [10]int
 	arr[0] = 43

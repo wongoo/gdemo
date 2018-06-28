@@ -2,14 +2,15 @@
 // created: 2018-05-25
 // file demo
 
-package main
+package basic
 
 import (
 	"os"
 	"fmt"
+	"testing"
 )
 
-func main() {
+func TestFile(t *testing.T) {
 	path := "test.txt"
 	file, _ := os.Create(path)
 

@@ -2,9 +2,12 @@
 // created: 2018-05-24
 // variable demo
 
-package main
+package basic
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
 // define one const basic
 const c1 = "v1"
@@ -19,7 +22,7 @@ const (
 	c5 = 2
 )
 
-func main() {
+func TestVar(t *testing.T) {
 
 	// print variables value
 	fmt.Printf("c1=%v\n", c1)

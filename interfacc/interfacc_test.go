@@ -5,8 +5,8 @@
 package interfacc
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 type Namer interface {
@@ -36,7 +36,7 @@ func (t *T) Name() string {
 // 如果方法是定义在struct对象上, 则对象和指针均可以访问此方法，且都可以被类型转换识别
 func TestA(t *testing.T) {
 	s1 := S{}
-	fmt.Printf("s1 name=%v, addr=%p pointer addr=%p\n", s1.Name(), s1, &s1)
+	fmt.Printf("s1 name=%v, addr=%v pointer addr=%p\n", s1.Name(), s1, &s1)
 	p(s1)
 	p(&s1)
 
@@ -94,3 +94,5 @@ func update(o interface{}) {
 		fmt.Printf("--> struct *S, change f1=%v\n", s.f1)
 	}
 }
+
+//-----------------------------
