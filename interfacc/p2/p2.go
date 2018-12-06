@@ -12,11 +12,11 @@ import (
 type T struct {
 }
 
-func (t T) Hello() {
+func (t *T) Hello() {
 	fmt.Println("hello")
 }
 
-func (t T) hi() {
+func (t *T) hi() {
 	fmt.Println("hi")
 }
 
@@ -29,7 +29,6 @@ func callHello(t interface{}) {
 }
 
 func main() {
-	t := T{}
-	fmt.Println(t)
+	t := &T{}
 	callHello(t)
 }
