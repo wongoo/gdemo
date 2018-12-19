@@ -43,7 +43,7 @@ func GetHostIPv4() net.IP {
 			continue
 		}
 		filterIP = ip
-		if !strings.Contains(i.Name, "docker") && !strings.Contains(i.Name, "bridge") {
+		if !ip.Equal(localhostIP) && !strings.Contains(i.Name, "docker") && !strings.Contains(i.Name, "bridge") {
 			break
 		}
 	}
