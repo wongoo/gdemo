@@ -26,6 +26,8 @@ package basic
 
 import (
 	"fmt"
+	"reflect"
+	"sync"
 	"testing"
 )
 
@@ -54,5 +56,25 @@ func TestMap(t *testing.T) {
 	// init and assign
 	numberMap = map[string]int{"c": 4, "d": 23}
 	fmt.Printf("len(numberMap)=%d\n", len(numberMap))
+}
 
+func TestMapAddress(t *testing.T) {
+	m := map[int]int{}
+	for i := 0; i < 20; i++ {
+		fmt.Printf("map addr: %p\n", m)
+		m[i] = i
+	}
+	typ := reflect.TypeOf(1)
+	mapTyp := reflect.MapOf(typ, typ)
+	mapValue := reflect.MakeMap(mapTyp)
+
+	for i := 0; i < 20; i++ {
+		fmt.Printf("map value addr: %d\n", mapValue.Pointer())
+		iv := reflect.ValueOf(i)
+		mapValue.SetMapIndex(iv, iv)
+	}
+}
+
+func TestSyncMap(t *testing.T){
+	m:=sync.Map{}
 }

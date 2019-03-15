@@ -6,6 +6,7 @@ package basic
 
 import (
 	"fmt"
+	"reflect"
 	"testing"
 )
 
@@ -67,5 +68,20 @@ func TestArray(t *testing.T) {
 	fmt.Printf("[after update] sliceB=%v\n", sliceB)
 	fmt.Printf("[after update] sliceC=%v\n", sliceC)
 
+}
+
+func TestArrayAddr(t *testing.T) {
+	arr := []int{0}
+	for i := 0; i < 10; i++ {
+		fmt.Printf("arr addr: %p\n", arr)
+		arr = append(arr, i)
+	}
+
+	sliceType := reflect.SliceOf(reflect.TypeOf(1))
+	sliceValue := reflect.MakeSlice(sliceType, 0, 0)
+	for i := 0; i < 10; i++ {
+		fmt.Printf("slice value addr: %d\n", sliceValue.Pointer())
+		sliceValue = reflect.Append(sliceValue, reflect.ValueOf(i))
+	}
 
 }
