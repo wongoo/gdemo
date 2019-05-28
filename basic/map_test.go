@@ -27,7 +27,6 @@ package basic
 import (
 	"fmt"
 	"reflect"
-	"sync"
 	"testing"
 )
 
@@ -76,5 +75,5 @@ func TestMapAddress(t *testing.T) {
 }
 
 func TestSyncMap(t *testing.T){
-	m:=sync.Map{}
+	//m:=sync.Map{}
 }
