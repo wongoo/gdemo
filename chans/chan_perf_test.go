@@ -5,16 +5,19 @@ import (
 )
 
 func BenchmarkChanPoolPerformance(b *testing.B) {
-	pools := make(chan int, 1000)
+	pools := make(chan int, 1024)
 
-	n := b.N
 	go func() {
-		for j := 0; j < n; j++ {
-			pools <- j
+		for j := 0; j < b.N; j++ {
+			go func() {
+				for n := 0; n < 100; n++ {
+					pools <- j
+				}
+			}()
 		}
 	}()
 
-	for i := 0; i < n; i++ {
+	for i := 0; i < 100*b.N; i++ {
 		<-pools
 	}
 }
