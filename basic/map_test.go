@@ -26,6 +26,7 @@ package basic
 
 import (
 	"fmt"
+	"github.com/stretchr/testify/assert"
 	"reflect"
 	"testing"
 )
@@ -74,6 +75,24 @@ func TestMapAddress(t *testing.T) {
 	}
 }
 
-func TestSyncMap(t *testing.T){
+func TestSyncMap(t *testing.T) {
 	//m:=sync.Map{}
+}
+
+func TestMapFuncRef(t *testing.T) {
+	m := make(map[string]string)
+
+	addMapItem(m)
+	fmt.Printf("map address: %p\n", m)
+
+	if _, ok := m["a"]; !ok {
+		t.Error("should contains key add in calling func")
+	}
+
+	assert.Equal(t, 1, len(m))
+}
+
+func addMapItem(m map[string]string) {
+	m["a"] = "b"
+	fmt.Printf("map address: %p\n", m)
 }
