@@ -1,6 +1,10 @@
 package basic
 
-import "testing"
+import (
+	"github.com/stretchr/testify/assert"
+	"math/big"
+	"testing"
+)
 
 func TestInt8Convert(t *testing.T) {
 	var b1 = 0xd8
@@ -36,4 +40,17 @@ func TestLongToByteConvert(t *testing.T) {
 	b2 := byte(_long3ByteZeroInt64 + (i2 >> 16))
 	t.Logf("b2=%d, %d, %x", b2, int8(b2), byte(b2)) // b2=63, 63, 3f
 
+}
+
+func TestBigInt(t *testing.T) {
+	i := big.NewInt(1)
+	t.Logf("big int i: %v, %p", i, i)
+
+	i2, ok := i.SetString("1234", 10)
+	assert.True(t, ok)
+
+	t.Logf("big int i: %v, %p", i, i)
+	t.Logf("big int i2: %v, %p", i2, i2)
+
+	i.SetBytes()
 }
